@@ -1,6 +1,6 @@
-package com.ar.qmeq.sample1.repository;
+package com.ar.qmeq.repository;
 
-import com.ar.qmeq.sample1.entities.Importaciones;
+import com.ar.qmeq.entities.Importaciones;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

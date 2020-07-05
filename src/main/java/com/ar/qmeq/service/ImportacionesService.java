@@ -1,7 +1,7 @@
-package com.ar.qmeq.sample1.service;
+package com.ar.qmeq.service;
 
-import com.ar.qmeq.sample1.entities.Importaciones;
-import com.ar.qmeq.sample1.repository.ImportacionesRepository;
+import com.ar.qmeq.entities.Importaciones;
+import com.ar.qmeq.repository.ImportacionesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

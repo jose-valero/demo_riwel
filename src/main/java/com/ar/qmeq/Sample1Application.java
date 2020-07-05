@@ -1,4 +1,4 @@
-package com.ar.qmeq.sample1;
+package com.ar.qmeq;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

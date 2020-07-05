@@ -1,4 +1,4 @@
-package com.ar.qmeq.sample1;
+package com.ar.qmeq;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

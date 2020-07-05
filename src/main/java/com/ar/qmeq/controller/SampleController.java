@@ -1,8 +1,8 @@
-package com.ar.qmeq.sample1.controller;
+package com.ar.qmeq.controller;
 
 
-import com.ar.qmeq.sample1.entities.Importaciones;
-import com.ar.qmeq.sample1.service.ImportacionesService;
+import com.ar.qmeq.entities.Importaciones;
+import com.ar.qmeq.service.ImportacionesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
