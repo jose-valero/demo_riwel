@@ -10,10 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 @RestController
 @RequestMapping(path = "file_uploader")
@@ -52,7 +49,12 @@ public class FilesController {
 
     @GetMapping(path = "tipomaquinaria")
     public List<String> getTipoMaquinarias() {
-        return new ArrayList<String>(Collections.singleton("hidroescabadoras"));
+        return Arrays.asList("hidroescabadoras","escabadoras","paletas");
+    }
+
+    @GetMapping(path = "getsubcategorias")
+    public List<String> getSubCategorias() {
+        return Arrays.asList("SOS","CIF","IDK");
     }
 
 }
