@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -46,6 +48,11 @@ public class FilesController {
     @GetMapping(path = "save")
     public HashMap<String, List<VistaGetMaquinaria>> getMaquinarias() {
         return IMService.prepareToSave();
+    }
+
+    @GetMapping(path = "tipomaquinaria")
+    public List<String> getTipoMaquinarias() {
+        return new ArrayList<String>(Collections.singleton("hidroescabadoras"));
     }
 
 }
