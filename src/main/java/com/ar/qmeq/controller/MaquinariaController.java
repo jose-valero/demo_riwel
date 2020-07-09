@@ -4,10 +4,11 @@ import com.ar.qmeq.excel.models.ExcelMaquinaria;
 import com.ar.qmeq.service.MaquinariaServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
-
+@CrossOrigin(CorsConfiguration.ALL)
 @RestController
 @RequestMapping(path = "maquinaria")
 public class MaquinariaController {

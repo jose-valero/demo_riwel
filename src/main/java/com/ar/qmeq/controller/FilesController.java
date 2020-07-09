@@ -10,10 +10,11 @@ import com.ar.qmeq.service.FileServices;
 import com.ar.qmeq.service.ImportacionMaquinariaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.*;
-
+@CrossOrigin(CorsConfiguration.ALL)
 @RestController
 @RequestMapping(path = "file_uploader")
 public class FilesController {
