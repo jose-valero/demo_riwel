@@ -1,6 +1,8 @@
 package com.ar.qmeq.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,18 +17,21 @@ public class Maquinaria {
     @Column
     private String modelo;
     @Column
-    private String version;
+    private String Segmento;
     @Column
-    private String codigo;
+    private String china;
     @Column
-    private String presentacion;
+    private String tipo;
     @Column
-    private String vencimiento;
+    private String traccion;
+    //Metros de Carga/Peso operativo/ Profundidad de excavación/PO/HP
     @Column
-    private String descripcion;
+    private Double PesoOperativo;
     @Column
-    private String descripcion_NCM;
+    private String subCategoria1;
     @Column
-    private String descripcion_SIM;
+    private String subCategoria2;
+    @Column
+    private String subCategoria3;
 
 }

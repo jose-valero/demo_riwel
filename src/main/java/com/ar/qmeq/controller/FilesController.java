@@ -2,18 +2,20 @@ package com.ar.qmeq.controller;
 
 
 import com.ar.qmeq.CsvFileMapper;
+import com.ar.qmeq.excel.models.ExcelMaquinaria;
+import com.ar.qmeq.excel.models.ExcelReader;
 import com.ar.qmeq.models.SabanaEnbruto;
 import com.ar.qmeq.models.VistaGetMaquinaria;
 import com.ar.qmeq.service.FileServices;
 import com.ar.qmeq.service.ImportacionMaquinariaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.*;
-
+@CrossOrigin(CorsConfiguration.ALL)
 @RestController
-@CrossOrigin("*")
 @RequestMapping(path = "file_uploader")
 public class FilesController {
 
@@ -25,6 +27,9 @@ public class FilesController {
 
     @Autowired
     ImportacionMaquinariaService IMService;
+
+    @Autowired
+    ExcelReader excelReader;
 
     @PostMapping
     public void GetFiles(@RequestParam("Importaciones") MultipartFile file) {
@@ -42,6 +47,8 @@ public class FilesController {
     public void saveMaquinaria(@RequestParam("total") MultipartFile file) {
         IMService.saveImportacionMaquinariaFromOriginalSabanFile(file);
     }
+
+
 
     @GetMapping(path = "save")
     public HashMap<String, List<VistaGetMaquinaria>> getMaquinarias() {

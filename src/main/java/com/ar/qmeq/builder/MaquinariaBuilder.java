@@ -13,15 +13,9 @@ public class MaquinariaBuilder {
 
     private static Maquinaria buildMaquinaria(SabanaEnbruto sabana) {
         Maquinaria maquinaria = new Maquinaria();
-        maquinaria.setCodigo(sabana.getCodigo());
         maquinaria.setMarca(sabana.getMarca());
         maquinaria.setModelo(sabana.getModelo());
-        maquinaria.setPresentacion(sabana.getPresentacion());
-        maquinaria.setVencimiento(sabana.getVencimiento());
         maquinaria.setMarca(sabana.getMarca());
-        maquinaria.setDescripcion(sabana.getDescripcion());
-        maquinaria.setDescripcion_NCM(sabana.getDescripcionNCM());
-        maquinaria.setDescripcion_SIM(sabana.getDescripcionSIM());
         maquinaria.setIdCompuesta(sabana.getMarca() + '-' + sabana.getModelo());
 
 
