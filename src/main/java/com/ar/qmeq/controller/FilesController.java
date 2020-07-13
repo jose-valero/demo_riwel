@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.*;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping(path = "file_uploader")
 public class FilesController {
 
