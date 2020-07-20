@@ -3,7 +3,7 @@ package com.ar.qmeq.models;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -13,5 +13,5 @@ public class VistaGetMaquinaria {
     private Double fobTotalDolares;
     private Double cif;
     private String codVenta;
-    private LocalDate mesAno;
+    private Date mesAno;
 }

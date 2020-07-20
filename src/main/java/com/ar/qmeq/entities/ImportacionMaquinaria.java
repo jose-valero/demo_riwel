@@ -3,7 +3,6 @@ package com.ar.qmeq.entities;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
 
@@ -14,7 +13,7 @@ public class ImportacionMaquinaria {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
-    private LocalDate mesAno;
+    private Date mesAno;
     private String importador;
     private String cuit;
     private String fecha_oficializacion;

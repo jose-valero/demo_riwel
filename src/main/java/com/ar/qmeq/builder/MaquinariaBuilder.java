@@ -5,6 +5,7 @@ import com.ar.qmeq.entities.Maquinaria;
 import com.ar.qmeq.models.SabanaEnbruto;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashMap;
 
 public class MaquinariaBuilder {
@@ -89,7 +90,7 @@ public class MaquinariaBuilder {
         maquinarias.clear();
     }
 
-    private static LocalDate DateFromMesAno(String mesAno) {
+    private static Date DateFromMesAno(String mesAno) {
         int month = 0;
         String[] mesAnoSplit = mesAno.split("-");
         switch (mesAnoSplit[0]) {
@@ -131,7 +132,8 @@ public class MaquinariaBuilder {
                 break;
         }
         String year = "20" + mesAnoSplit[1];
-        return LocalDate.of(Integer.parseInt(year), month, 1);
+        Date returnDate = java.sql.Date.valueOf(LocalDate.of(Integer.parseInt(year), month, 1));
+        return returnDate;
 
     }
 

@@ -2,10 +2,8 @@ package com.ar.qmeq.controller;
 
 
 import com.ar.qmeq.CsvFileMapper;
-import com.ar.qmeq.excel.models.ExcelMaquinaria;
 import com.ar.qmeq.excel.models.ExcelReader;
 import com.ar.qmeq.models.SabanaEnbruto;
-import com.ar.qmeq.models.VistaGetMaquinaria;
 import com.ar.qmeq.service.FileServices;
 import com.ar.qmeq.service.ImportacionMaquinariaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.*;
+import java.util.List;
 @CrossOrigin(CorsConfiguration.ALL)
 @RestController
 @RequestMapping(path = "file_uploader")
@@ -48,21 +46,5 @@ public class FilesController {
         IMService.saveImportacionMaquinariaFromOriginalSabanFile(file);
     }
 
-
-
-    @GetMapping(path = "save")
-    public HashMap<String, List<VistaGetMaquinaria>> getMaquinarias() {
-        return IMService.prepareToSave();
-    }
-
-    @GetMapping(path = "tipomaquinaria")
-    public List<String> getTipoMaquinarias() {
-        return Arrays.asList("hidroescabadoras","escabadoras","paletas");
-    }
-
-    @GetMapping(path = "getsubcategorias")
-    public List<String> getSubCategorias() {
-        return Arrays.asList("SOS","CIF","IDK");
-    }
 
 }
