@@ -34,7 +34,7 @@ public class MaquinariaController {
         IMService.saveImportacionMaquinariaFromOriginalSabanFile(file);
     }
 
-    @GetMapping()
+    @GetMapping
     public HashMap<String, List<VistaGetMaquinaria>> getMaquinarias(
             @RequestParam("fromdate") @DateTimeFormat(pattern = "yyyy") Date fromdate,
             @RequestParam("todate") @DateTimeFormat(pattern = "yyyy") Date todate,
