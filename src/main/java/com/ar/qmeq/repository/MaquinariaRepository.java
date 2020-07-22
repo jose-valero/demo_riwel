@@ -13,4 +13,9 @@ public interface MaquinariaRepository extends CrudRepository <Maquinaria, String
 
     @Query(value = "select distinct m.tipo from maquinaria m", nativeQuery =true )
     List<String> getTipos();
+
+    //select distinct cond_venta from importacion_maquinaria
+
+    @Query(value = "select distinct cond_venta from importacion_maquinaria where cond_venta <> ''", nativeQuery =true )
+    List<String> getCodigosDeVenta();
 }

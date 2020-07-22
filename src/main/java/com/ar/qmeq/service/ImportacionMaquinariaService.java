@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -44,22 +45,65 @@ public class ImportacionMaquinariaService {
 
     }
 
-    public HashMap<String, List<VistaGetMaquinaria>> getmaquinariaByParams(Date fromdate,
-                                                                           Date todate,
-                                                                           String tipoMaquinaria,
-                                                                           String[] codVenta) {
+    public HashMap<String, HashMap<String, List<VistaGetMaquinaria>>> getmaquinariaByParams(Date fromdate,
+                                                                                                                                                         Date todate,
+                                                                                                                                                         String tipoMaquinaria,
+                                                                                                                                                         String[] codVenta) {
         List<VistaGetMaquinaria> maquinaria = repository.getMaquinariaDemo(fromdate, todate, tipoMaquinaria, codVenta);
-
-        HashMap<String, List<VistaGetMaquinaria>> maquinarias = new HashMap<String, List<VistaGetMaquinaria>>();
+        var maquinariaAno = new HashMap<String, HashMap<String, List<VistaGetMaquinaria>>>();
+        var maquinarias = new HashMap<String, List<VistaGetMaquinaria>>();
         maquinaria.forEach(v -> {
-            var list = maquinarias.get(v.getMesAno().toString());
+            var calendario = Calendar.getInstance();
+            calendario.setTime(v.getMesAno());
+            var year = calendario.get(Calendar.YEAR);
+            var yearList = maquinariaAno.get(String.valueOf(year));
+            if (yearList == null){
+                yearList = new HashMap<String, List<VistaGetMaquinaria>>();
+            }
+
+
+            var list = yearList.get(getMonthByDate(v.getMesAno()));
             if (list == null) {
                 list = new ArrayList<VistaGetMaquinaria>();
             }
             list.add(v);
-            maquinarias.put(v.getMesAno().toString(), list);
+            maquinarias.put(getMonthByDate(v.getMesAno()), list);
+            maquinariaAno.put(String.valueOf(year),maquinarias);
         });
 
-        return maquinarias;
+        return maquinariaAno;
+    }
+
+    private String getMonthByDate(Date date){
+        switch (date.getMonth()) {
+            case 0:
+                return "Ene";
+            case 1:
+                return "Feb";
+            case 2:
+                return "Mar";
+            case 3:
+                return "Abr";
+            case 4:
+                return "May";
+            case 5:
+                return "Jun";
+            case 6:
+                return "Jul";
+            case 7:
+                return "Ago";
+            case 8:
+                return "Sep";
+            case 9:
+                return "Oct";
+            case 10:
+                return "Nov";
+            case 11:
+                return "Dic";
+
+        }
+        return null;
     }
 }
+
+

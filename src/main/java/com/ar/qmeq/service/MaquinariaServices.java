@@ -26,4 +26,8 @@ public class MaquinariaServices {
        return repository.getTipos();
     }
 
+    public List<String> getCodigosDeVenta(){
+        return repository.getCodigosDeVenta();
+    }
+
 }

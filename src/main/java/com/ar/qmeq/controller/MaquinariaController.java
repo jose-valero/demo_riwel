@@ -35,7 +35,7 @@ public class MaquinariaController {
     }
 
     @GetMapping
-    public HashMap<String, List<VistaGetMaquinaria>> getMaquinarias(
+    public HashMap<?, ?> getMaquinarias(
             @RequestParam("fromdate") @DateTimeFormat(pattern = "yyyy") Date fromdate,
             @RequestParam("todate") @DateTimeFormat(pattern = "yyyy") Date todate,
             @RequestParam("tipomaquinaria") String tipoMaquinaria,
@@ -46,5 +46,10 @@ public class MaquinariaController {
     @GetMapping(path = "categoria")
     public List<String> getMaquinariasTipo() {
         return maquinariaServices.getTipos();
+    }
+
+    @GetMapping(path = "cod-venta")
+    public List<String> getCodigosDeVenta() {
+        return maquinariaServices.getCodigosDeVenta();
     }
 }

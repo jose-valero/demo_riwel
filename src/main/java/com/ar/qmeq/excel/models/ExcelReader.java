@@ -44,7 +44,7 @@ public class ExcelReader {
             Maquinaria.setMarca(v.getMarca());
             Maquinaria.setModelo(v.getModelo());
             Maquinaria.setSegmento(v.getSegmento());
-            Maquinaria.setTipo(v.getTipo());
+            Maquinaria.setTipo(v.getTipo().toUpperCase());
             Maquinaria.setChina(v.getChina());
             Maquinaria.setPesoOperativo(v.getApplicableCarrierWeight());
             Maquinaria.setTraccion(v.getTraccion());
