@@ -2,6 +2,7 @@ package com.ar.qmeq.entities;
 
 
 import lombok.Data;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.UUID;
@@ -12,6 +13,7 @@ import java.util.UUID;
 public class Importaciones {
 
     @Id
+    @Type(type = "pg-uuid")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     @Column

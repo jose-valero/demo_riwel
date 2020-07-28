@@ -64,6 +64,16 @@
             <version>2.9.0</version>
         </dependency>
         <dependency>
+            <groupId>com.vladmihalcea</groupId>
+            <artifactId>hibernate-types-52</artifactId>
+            <version>2.9.12</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.gasparbarancelli</groupId>
+            <artifactId>spring-native-query</artifactId>
+            <version>1.0.24</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>

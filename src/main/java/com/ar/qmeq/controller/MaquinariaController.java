@@ -1,16 +1,12 @@
 package com.ar.qmeq.controller;
 
-import com.ar.qmeq.models.VistaGetMaquinaria;
 import com.ar.qmeq.service.ImportacionMaquinariaService;
 import com.ar.qmeq.service.MaquinariaServices;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
 @CrossOrigin(CorsConfiguration.ALL)
@@ -35,13 +31,14 @@ public class MaquinariaController {
     }
 
     @GetMapping
-    public HashMap<?, ?> getMaquinarias(
-            @RequestParam("fromdate") @DateTimeFormat(pattern = "yyyy") Date fromdate,
-            @RequestParam("todate") @DateTimeFormat(pattern = "yyyy") Date todate,
-            @RequestParam("tipomaquinaria") String tipoMaquinaria,
-            @RequestParam("codeventa") String[] codVenta) {
-        return IMService.getmaquinariaByParams(fromdate, todate, tipoMaquinaria, codVenta);
+    public List<Object> getMaquinariasOther(
+            @RequestParam("fromdate") String fromdate,
+            @RequestParam("todate") String todate,
+            @RequestParam(value = "tipomaquinaria", required = false) String tipoMaquinaria,
+            @RequestParam(value = "codeventa", required = false) List<String> codVenta) {
+        return IMService.getImportacionesNative(fromdate, todate, tipoMaquinaria, codVenta);
     }
+
 
     @GetMapping(path = "categoria")
     public List<String> getMaquinariasTipo() {

@@ -1,6 +1,7 @@
 package com.ar.qmeq.entities;
 
 import lombok.Data;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -11,6 +12,7 @@ import java.util.UUID;
 public class ImportacionMaquinaria {
 
     @Id
+    @Type(type = "pg-uuid")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     private Date mesAno;
