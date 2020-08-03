@@ -94,44 +94,51 @@ public class MaquinariaBuilder {
         int month = 0;
         String[] mesAnoSplit = mesAno.split("-");
         switch (mesAnoSplit[0]) {
-            case "ene":
+            case "ene","01":
                 month = 1;
                 break;
-            case "feb":
+            case "feb","02":
                 month = 2;
                 break;
-            case "mar":
+            case "mar","03":
                 month = 3;
                 break;
-            case "abr":
+            case "abr","04":
                 month = 4;
                 break;
-            case "jun":
+            case "jun","05":
                 month = 5;
                 break;
-            case "mayo":
+            case "mayo","06":
                 month = 6;
                 break;
-            case "jul":
+            case "jul","07":
                 month = 7;
                 break;
-            case "ago":
+            case "ago","08":
                 month = 8;
                 break;
-            case "sep":
+            case "sep","09":
                 month = 9;
                 break;
-            case "oct":
+            case "oct","10":
                 month = 10;
                 break;
-            case "nov":
+            case "nov","11":
                 month = 11;
                 break;
-            case "dic":
+            case "dic","12":
                 month = 12;
                 break;
         }
-        String year = "20" + mesAnoSplit[1];
+        String year = "";
+        if(mesAnoSplit[1].length() == 2) {
+            year = "20" + mesAnoSplit[1];
+        }else if(mesAnoSplit[1].length() == 4) {
+            year = mesAnoSplit[1];
+        }else {
+            throw new RuntimeException("Fecha en formato distinto");
+        }
         Date returnDate = java.sql.Date.valueOf(LocalDate.of(Integer.parseInt(year), month, 1));
         return returnDate;
 
