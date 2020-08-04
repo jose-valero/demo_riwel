@@ -11,7 +11,7 @@ import java.util.UUID;
 @Repository
 public interface MaquinariaRepository extends CrudRepository <Maquinaria, String> {
 
-    @Query(value = "select distinct m.tipo from maquinaria m", nativeQuery =true )
+    @Query(value = "select distinct m.tipo from maquinaria m order by m.tipo", nativeQuery =true )
     List<String> getTipos();
 
     //select distinct cond_venta from importacion_maquinaria

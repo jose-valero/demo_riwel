@@ -106,10 +106,10 @@ public class MaquinariaBuilder {
             case "abr","04":
                 month = 4;
                 break;
-            case "jun","05":
+            case "may","05":
                 month = 5;
                 break;
-            case "mayo","06":
+            case "jun","06":
                 month = 6;
                 break;
             case "jul","07":
