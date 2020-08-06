@@ -44,7 +44,7 @@ public class ImportacionMaquinaria {
     private Double fobTotalEnDivisas;
     private Double precioUnitarioEnDolares;
     private Double fobTotalEnDolares;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Maquinaria maquinaria;
     private Double baseImponible;
     private Double procentaje_Derechos;

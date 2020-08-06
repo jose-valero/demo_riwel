@@ -32,5 +32,19 @@ fetch("localhost:8080/maquinaria/excel/", requestOptions)
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
 ```
+para hacer el get en los request
+```
+var file = "<file contents here>";
 
+var requestOptions = {
+  method: 'GET',
+  body: file,
+  redirect: 'follow'
+};
+
+fetch("localhost:8080/maquinaria?fromdate=2018&todate=2021&tipomaquinaria=MINICARGADORA&codeventa=CIF,SOS,FCA,FOB", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+```
 

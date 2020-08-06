@@ -2,7 +2,7 @@ package com.ar.qmeq.builder;
 
 import com.ar.qmeq.entities.ImportacionMaquinaria;
 import com.ar.qmeq.entities.Maquinaria;
-import com.ar.qmeq.models.SabanaEnbruto;
+import com.ar.qmeq.models.CSVBruto;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -12,7 +12,7 @@ public class MaquinariaBuilder {
 
     public static HashMap<String, Maquinaria> maquinarias = new HashMap<String, Maquinaria>();
 
-    private static Maquinaria buildMaquinaria(SabanaEnbruto sabana) {
+    private static Maquinaria buildMaquinaria(CSVBruto sabana) {
         Maquinaria maquinaria = new Maquinaria();
         maquinaria.setMarca(sabana.getMarca());
         maquinaria.setModelo(sabana.getModelo());
@@ -30,7 +30,7 @@ public class MaquinariaBuilder {
 
     }
 
-    public static ImportacionMaquinaria BuildIM(SabanaEnbruto sabana) {
+    public static ImportacionMaquinaria BuildIM(CSVBruto sabana) {
         ImportacionMaquinaria imaquinaria = new ImportacionMaquinaria();
         imaquinaria.setAduana(sabana.getAduana());
         imaquinaria.setArancelSIM(sabana.getArancelSIM());

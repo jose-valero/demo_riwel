@@ -27,7 +27,7 @@ public class MaquinariaController {
 
     @PostMapping(path = "excel/aduana")
     public void saveMaquinaria(@RequestParam("total") MultipartFile file) {
-        IMService.saveImportacionMaquinariaFromOriginalSabanFile(file);
+        IMService.saveAduanaFile(file);
     }
 
     @GetMapping

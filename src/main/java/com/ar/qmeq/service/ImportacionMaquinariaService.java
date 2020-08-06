@@ -3,7 +3,7 @@ package com.ar.qmeq.service;
 import com.ar.qmeq.CsvFileMapper;
 import com.ar.qmeq.builder.MaquinariaBuilder;
 import com.ar.qmeq.entities.ImportacionMaquinaria;
-import com.ar.qmeq.models.SabanaEnbruto;
+import com.ar.qmeq.models.CSVBruto;
 import com.ar.qmeq.repository.ImportacionesMaquinariaRepository;
 import com.ar.qmeq.repository.MaquinariaRepository;
 import com.ar.qmeq.repository.NativeQueries;
@@ -29,10 +29,11 @@ public class ImportacionMaquinariaService {
     @Autowired
     NativeQueries nativeQueries;
 
-    public void saveImportacionMaquinariaFromOriginalSabanFile(MultipartFile file) {
-        List<SabanaEnbruto> maquinaria = csvFileMapper.fileTojson(file);
+    public void saveAduanaFile(MultipartFile file) {
+        List<CSVBruto> maquinaria = csvFileMapper.fileTojson(file);
 
         List<ImportacionMaquinaria> lisToSave = maquinaria.stream().map(v -> MaquinariaBuilder.BuildIM(v)).collect(Collectors.toList());
+
         List<String> ids = lisToSave.stream().map(v -> v.getMaquinaria().getIdCompuesta()).collect(Collectors.toList());
         var maquinariasBD = maquinariaRepository.findAllById(ids);
         lisToSave.forEach(m -> {
@@ -49,41 +50,10 @@ public class ImportacionMaquinariaService {
         return nativeQueries.GetMaquinariasNative(fromdate, todate, tipoMaquinaria, codVenta);
     }
 
-/*
+    private void LoadEmptyMonth(List<ImportacionMaquinaria> lisToSave) {
 
+    }
 
-
-
-    private String getMonthByDate(Date date) {
-        switch (date.getMonth()) {
-            case 0:
-                return "Ene";
-            case 1:
-                return "Feb";
-            case 2:
-                return "Mar";
-            case 3:
-                return "Abr";
-            case 4:
-                return "May";
-            case 5:
-                return "Jun";
-            case 6:
-                return "Jul";
-            case 7:
-                return "Ago";
-            case 8:
-                return "Sep";
-            case 9:
-                return "Oct";
-            case 10:
-                return "Nov";
-            case 11:
-                return "Dic";
-
-        }
-        return null;
-    }*/
 }
 
 

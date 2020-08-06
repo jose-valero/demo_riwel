@@ -1,6 +1,6 @@
 package com.ar.qmeq;
 
-import com.ar.qmeq.models.SabanaEnbruto;
+import com.ar.qmeq.models.CSVBruto;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
@@ -26,7 +26,7 @@ public class CsvFileMapper {
         return csvMapper;
     }
 
-    public List<SabanaEnbruto> fileTojson(MultipartFile file) {
+    public List<CSVBruto> fileTojson(MultipartFile file) {
         CsvSchema bootstrap = CsvSchema.builder()
                 .addColumn("Importador (prob.)")
                 .addColumn("Cuit")
@@ -96,7 +96,7 @@ public class CsvFileMapper {
                 .addColumn("Base imponible")
                 .build().withColumnSeparator(';').withColumnReordering(true).withHeader();
         try {
-            MappingIterator<SabanaEnbruto> mappingIterator = this.mapper.readerFor(SabanaEnbruto.class).with(bootstrap).readValues(this.getFilebytes(file));
+            MappingIterator<CSVBruto> mappingIterator = this.mapper.readerFor(CSVBruto.class).with(bootstrap).readValues(this.getFilebytes(file));
             return mappingIterator.readAll();
         } catch (IOException e) {
             e.printStackTrace();
